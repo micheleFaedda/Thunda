@@ -1,0 +1,203 @@
+---
+import { Image } from 'astro:assets';
+import PhotoCarousel from "@components/PhotoCarousel.astro";
+import { MENU_REDIRECT, BOOK_REDIRECT } from "../constants";
+import cerchioImg from '@assets/cerchio_oro.svg';
+import grandeVerdeImg from '@assets/grande_cerchio_verde.svg';
+---
+
+<main>
+	<section class="hero">
+    <div class="tagline">
+      <div class="tagline-inner">
+        <div class="line line-1">
+          <span class="word">La</span>
+          <span class="word">Pizza</span>
+        </div>
+        <div class="line line-2">
+          <span class="word">Come</span>
+          <span class="word deve-container">
+            <Image src={cerchioImg} alt="" class="cerchio" width={204} height={204} loading="eager" />
+            <span>Deve</span>
+          </span>
+          <span class="word">Essere</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a class="callToAction" href={MENU_REDIRECT}>Menu</a>
+      <a class="callToAction" href={BOOK_REDIRECT} target="_blank" rel="noopener noreferrer">Prenota Ora</a>
+    </div>
+
+		<div class="background">
+			<Image src={grandeVerdeImg} alt="" class="background-cerchio" width={800} height={800} loading="eager" />
+		</div>
+	</section>
+  <PhotoCarousel />
+</main>
+
+<style>
+	.buttons {
+		display: grid;
+		gap: 1.5rem;
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+	.buttons .callToAction {
+		background-color: var(--brown);
+		color: var(--gold);
+		width: 100%;
+		border-radius: 1rem;
+		padding: 1rem;
+		font-weight: 700;
+		font-size: 1.2rem;
+		text-align: center;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    font-family: var(--brand-font);
+		text-transform: uppercase;
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+	.buttons .callToAction:hover {
+		background-color: var(--gold);
+		color: var(--brown);
+		transform: scale(1.05);
+	}
+	.hero {
+		height: 100vh;
+		display: grid;
+		grid-template-rows: 1fr auto;
+	}
+	.background {
+		position: absolute;
+    background: var(--red);
+		bottom: 0;
+		right: 0;
+		height: 100vh;
+		width: 100vw;
+		z-index: -1000;
+		overflow: hidden;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		padding-top: 5vh;
+	}
+	
+	.background-cerchio {
+		position: relative;
+		width: auto;
+		height: 70%;
+		animation: rotate 45s linear infinite;
+	}
+	
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	.hero .tagline {
+		text-transform: uppercase;
+    color: var(--white);
+		font-size: 3rem;
+		text-align: center;
+    font-family: var(--brand-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+	}
+	
+	.hero .tagline-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+	
+	.hero .tagline .line {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+	
+	@media screen and (min-width: 768px) {
+		.hero .tagline {
+			font-size: 3.5rem;
+		}
+		.hero .tagline .line {
+			flex-direction: row;
+			justify-content: center;
+			gap: 1.5rem;
+		}
+	}
+	
+	@media screen and (min-width: 900px) {
+		/* Account for desktop menu height */
+		.hero .tagline {
+			padding-top: 4rem;
+		}
+	}
+	
+	@media screen and (min-width: 1200px) {
+		.hero .tagline {
+			font-size: 4rem;
+			padding-top: 4rem;
+		}
+		.hero .tagline-inner {
+			flex-direction: row;
+			gap: 1.5rem;
+		}
+		.background {
+			padding-top: 0;
+		}
+		.background-cerchio {
+			height: 95%;
+		}
+	}
+	.hero .tagline .deve-container {
+		position: relative;
+		display: inline-block;
+	}
+	.hero .tagline .cerchio {
+		position: absolute;
+		width: 3.4em;
+		height: 3.4em;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: -1;
+		opacity: 0.8;
+	}
+	.hero .signature {
+		position: absolute;
+		bottom: -5rem;
+		height: 10rem;
+		color: var(--black);
+		z-index: -1;
+	}
+	.hero .header .title {
+		display: grid;
+		justify-items: end;
+	position:relative;
+	}
+	.hero .header .title h1 {
+		font-size: 6rem;
+	}
+	.hero .header .title h2 {
+		font-size: 1.5rem;
+		color: var(--gold);
+		position: absolute;
+		bottom: -1rem;
+	}
+</style>

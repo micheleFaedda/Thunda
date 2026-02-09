@@ -1,0 +1,46 @@
+---
+export interface Props {
+  returnUrl?: string;
+}
+
+const { returnUrl = '/menu' } = Astro.props;
+---
+
+<nav class="breadcrumb">
+  <a href={returnUrl} class="home-link" aria-label="Return to menu">
+    <svg class="home-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+    </svg>
+  </a>
+</nav>
+
+<style>
+  .breadcrumb {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .home-link:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .home-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+</style>

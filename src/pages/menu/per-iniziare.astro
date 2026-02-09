@@ -1,0 +1,13 @@
+---
+import Layout from '@layouts/Layout.astro';
+import MenuPage from '@components/MenuPage.astro';
+import { loadMenuData } from '../../utils/menuLoader';
+
+// Load menu data from YAML
+const menuData = await loadMenuData('per-iniziare');
+const menuItems = menuData.items || [];
+---
+
+<Layout title="Per Iniziare - Menu - Tundha">
+  <MenuPage title={menuData.title} items={menuItems} />
+</Layout>

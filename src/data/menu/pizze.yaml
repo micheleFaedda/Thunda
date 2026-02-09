@@ -1,0 +1,82 @@
+title: Pizze
+tabs:
+  - id: crisp
+    label: Crisp
+    items:
+      - name: Crisp Margherita
+        description: Base croccante, pomodoro, mozzarella di bufala DOP, basilico
+        price: 12
+        
+      - name: Crisp Parma
+        description: Base croccante, mozzarella, prosciutto di Parma DOP 18 mesi, rucola, scaglie di parmigiano
+        price: 15
+        
+      - name: Crisp Mediterranea
+        description: Base croccante, pomodorini confit, olive taggiasche, capperi, origano, acciughe
+        price: 14
+        
+      - name: Crisp Vegetariana
+        description: Base croccante, verdure grigliate di stagione, mozzarella, pomodorini
+        price: 13
+        
+      - name: Crisp Salmone
+        description: Base croccante, crema di ricotta, salmone affumicato norvegese, aneto, lime
+        price: 16
+        
+      - name: Crisp Tartufata
+        description: Base croccante, crema al tartufo, funghi porcini, mozzarella, tartufo nero a scaglie
+        price: 20
+
+  - id: classiche
+    label: Classiche
+    items:
+      - name: Margherita
+        description: Pomodoro San Marzano DOP, mozzarella fior di latte, basilico fresco, olio EVO
+        price: 10
+        
+      - name: Marinara
+        description: Pomodoro San Marzano DOP, aglio, origano di Sicilia, olio EVO
+        price: 8
+        
+      - name: Quattro Formaggi
+        description: Mozzarella, gorgonzola DOP, parmigiano reggiano, pecorino romano
+        price: 12
+        
+      - name: Capricciosa
+        description: Pomodoro, mozzarella, prosciutto cotto, funghi champignon, carciofi, olive nere
+        price: 13
+        
+      - name: Diavola
+        description: Pomodoro, mozzarella, salame piccante calabrese, peperoncino
+        price: 11
+        
+      - name: Napoli
+        description: Pomodoro, mozzarella, acciughe di Cetara, capperi, origano
+        price: 11
+        
+      - name: Prosciutto e Funghi
+        description: Pomodoro, mozzarella, prosciutto cotto, funghi champignon freschi
+        price: 12
+
+  - id: stagionali
+    label: Stagionali
+    items:
+      - name: Autunnale
+        description: Crema di zucca mantovana, gorgonzola DOP, noci tostate, radicchio tardivo di Treviso
+        price: 15
+        
+      - name: Primaverile
+        description: Asparagi verdi, uova di quaglia, parmigiano reggiano 24 mesi, erbe aromatiche fresche
+        price: 14
+        
+      - name: Estiva
+        description: Pomodorini pachino, burrata pugliese, basilico fresco, olio al basilico
+        price: 16
+        
+      - name: Invernale
+        description: Crema di tartufo nero, funghi porcini, provola affumicata, prezzemolo
+        price: 18
+        
+      - name: Del Bosco
+        description: Funghi misti di stagione, castagne, speck dell'Alto Adige, rosmarino
+        price: 15

@@ -1,0 +1,14 @@
+---
+import Layout from "@layouts/Layout.astro";
+import MenuPage from '@components/MenuPage.astro';
+import { liquorIcon } from '../../constants/menuIcons';
+import { loadMenuData } from '../../utils/menuLoader';
+
+// Load menu data from YAML
+const menuData = await loadMenuData('liquori');
+const menuItems = menuData.items || [];
+---
+
+<Layout title="Liquori - Tundha">
+  <MenuPage title={menuData.title} items={menuItems} defaultIcon={liquorIcon} />
+</Layout>

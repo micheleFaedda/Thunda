@@ -1,0 +1,167 @@
+title: Analcolici & Caffetteria
+tabs:
+  - id: analcolici
+    label: Analcolici
+    items:
+      - name: Coca Cola
+        description: Lattina 33cl
+        price: 3
+        
+      - name: Coca Cola Zero
+        description: Lattina 33cl
+        price: 3
+        
+      - name: Fanta
+        description: Lattina 33cl
+        price: 3
+        
+      - name: Sprite
+        description: Lattina 33cl
+        price: 3
+        
+      - name: Aranciata San Pellegrino
+        description: Aranciata italiana - 33cl
+        price: 3
+        
+      - name: Limonata San Pellegrino
+        description: Limonata italiana - 33cl
+        price: 3
+        
+      - name: Chinotto San Pellegrino
+        description: Chinotto italiano - 33cl
+        price: 3
+        
+      - name: Acqua Naturale
+        description: Bottiglia 50cl
+        price: 2
+        
+      - name: Acqua Frizzante
+        description: Bottiglia 50cl
+        price: 2
+        
+      - name: Tè Freddo Limone
+        description: Tè freddo al limone - 33cl
+        price: 3
+        
+      - name: Tè Freddo Pesca
+        description: Tè freddo alla pesca - 33cl
+        price: 3
+        
+      - name: Succo di Frutta Pesca
+        description: Succo di pesca - 20cl
+        price: 3
+        
+      - name: Succo di Frutta Albicocca
+        description: Succo di albicocca - 20cl
+        price: 3
+        
+      - name: Succo di Frutta ACE
+        description: Arancia, carota e limone - 20cl
+        price: 3
+        
+      - name: Succo di Frutta Ananas
+        description: Succo di ananas - 20cl
+        price: 3
+        
+      - name: Red Bull
+        description: Energy drink - 25cl
+        price: 4
+        
+      - name: Tonica Schweppes
+        description: Acqua tonica - 20cl
+        price: 3
+        
+      - name: Ginger Ale
+        description: Schweppes - 20cl
+        price: 3
+
+  - id: caffetteria
+    label: Caffetteria
+    items:
+      - name: Caffè Espresso
+        description: Espresso italiano tradizionale
+        price: 1.50
+        
+      - name: Caffè Doppio
+        description: Doppio espresso
+        price: 2.50
+        
+      - name: Caffè Lungo
+        description: Espresso lungo
+        price: 1.80
+        
+      - name: Caffè Ristretto
+        description: Espresso ristretto concentrato
+        price: 1.50
+        
+      - name: Caffè Macchiato
+        description: Espresso macchiato con latte
+        price: 1.80
+        
+      - name: Caffè Macchiato Grande
+        description: Doppio espresso macchiato
+        price: 2.80
+        
+      - name: Cappuccino
+        description: Espresso con latte montato e cacao
+        price: 2.50
+        
+      - name: Cappuccino con Panna
+        description: Cappuccino con panna montata
+        price: 3
+        
+      - name: Caffè Americano
+        description: Espresso allungato con acqua calda
+        price: 2
+        
+      - name: Caffè Corretto
+        description: Espresso con grappa o sambuca
+        price: 3
+        
+      - name: Caffè Marocchino
+        description: Espresso, cacao e schiuma di latte
+        price: 2.80
+        
+      - name: Caffè Shakerato
+        description: Espresso shakerato con ghiaccio
+        price: 3
+        
+      - name: Latte Macchiato
+        description: Latte caldo macchiato con caffè
+        price: 3
+        
+      - name: Caffè d'Orzo
+        description: Caffè d'orzo
+        price: 2
+        
+      - name: Caffè Ginseng
+        description: Caffè al ginseng
+        price: 2.50
+        
+      - name: Caffè Decaffeinato
+        description: Espresso decaffeinato
+        price: 1.50
+        
+      - name: Tè Caldo Nero
+        description: Tè nero classico
+        price: 2.50
+        
+      - name: Tè Verde
+        description: Tè verde giapponese
+        price: 2.50
+        
+      - name: Camomilla
+        description: Infuso di camomilla
+        price: 2.50
+        
+      - name: Tisana
+        description: Selezione di tisane
+        price: 2.50
+        
+      - name: Cioccolata Calda
+        description: Cioccolata calda cremosa
+        price: 4
+        
+      - name: Cioccolata con Panna
+        description: Cioccolata calda con panna montata
+        price: 4.50

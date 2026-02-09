@@ -1,0 +1,439 @@
+---
+
+/**
+ * CAROUSEL IMAGE MANAGEMENT
+ * -------------------------
+ * To add images: Simply place image files in /src/data/carousel/ folder
+ * To remove images: Delete image files from /src/data/carousel/ folder
+ * Supported formats: .jpg, .jpeg, .png, .webp
+ * 
+ * Images are automatically loaded and sorted alphabetically by filename.
+ * For custom alt text, add the filename (without extension) to the altTexts object below.
+ */
+
+// Dynamically import all images from the carousel folder
+const images = import.meta.glob('../data/carousel/*.{jpg,jpeg,png,webp}', { eager: true });
+
+// Convert the imported images to an array with alt text
+const carouselImages = Object.entries(images)
+  .sort(([a], [b]) => a.localeCompare(b)) // Sort by filename for consistent order
+  .map(([path, module]) => {
+    // Extract filename without extension
+    const filename = path.split('/').pop()?.split('.')[0] || 'pizza';
+    
+    // Define specific alt texts for known images
+    const altTexts: Record<string, string> = {
+      'photo_2025-09-02_20-27-14': "Sardinian pizza with golden cornmeal crust topped with fresh shrimp, burrata cheese, and cherry tomato sauce"
+    };
+    
+    // Get the image source - check if it's a string or ImageMetadata object
+    const mod = module as { default: string | { src: string } };
+    const imageSrc = typeof mod.default === 'string' ? mod.default : mod.default.src;
+    
+    return {
+      src: imageSrc,
+      alt: altTexts[filename] || `Delicious artisanal pizza from Tundha - ${filename.replace(/[-_]/g, ' ')}`
+    };
+  });
+---
+
+<section class="photo-carousel" id="photo-carousel">
+  <button class="hover-zone hover-zone-left" aria-label="Previous image">
+    <svg class="carousel-arrow carousel-arrow-left" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  
+  <div class="carousel-container">
+    <div class="carousel-track">
+      {carouselImages.map((image) => (
+        <div class="carousel-slide">
+          <div class="image-container">
+            <img 
+              src={image.src} 
+              alt={image.alt}
+              loading="lazy"
+              decoding="async"
+              class="carousel-image"
+            />
+            <!-- Blur placeholder -->
+            <div class="image-placeholder" aria-hidden="true"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <button class="hover-zone hover-zone-right" aria-label="Next image">
+    <svg class="carousel-arrow carousel-arrow-right" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+</section>
+
+<script>
+  const carousel = document.getElementById('photo-carousel');
+  const container = carousel?.querySelector('.carousel-container') as HTMLElement;
+  const track = carousel?.querySelector('.carousel-track') as HTMLElement;
+  const slides = carousel?.querySelectorAll('.carousel-slide');
+  const leftButton = carousel?.querySelector('.hover-zone-left');
+  const rightButton = carousel?.querySelector('.hover-zone-right');
+  
+  if (container && track && slides && slides.length > 0 && leftButton && rightButton) {
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoAdvanceTimer: number | null = null;
+    
+    // Touch support variables
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isDragging = false;
+    
+    function updateCarousel(isSwipe = false) {
+      if (!slides || slides.length === 0) return;
+      const firstSlide = slides[0] as HTMLElement;
+      const slideWidth = firstSlide.clientWidth;
+      const containerWidth = container.clientWidth;
+      // Center the current image by offsetting half the container width minus half the slide width
+      const offset = (containerWidth / 2) - (slideWidth / 2);
+      const translateX = -currentIndex * slideWidth + offset;
+      track.style.transform = `translateX(${translateX}px)`;
+      track.style.transition = isSwipe ? 'transform 0.3s ease' : 'transform 0.8s ease';
+    }
+    
+    function startAutoAdvance() {
+      // Clear any existing timer
+      if (autoAdvanceTimer) {
+        clearInterval(autoAdvanceTimer);
+      }
+      
+      // Set new timer for 2 seconds
+      autoAdvanceTimer = setInterval(() => {
+        if (currentIndex < totalSlides - 1) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+        updateCarousel();
+      }, 2000);
+    }
+    
+    function goToSlide(index: number, isSwipe = false) {
+      currentIndex = index;
+      updateCarousel(isSwipe);
+      startAutoAdvance(); // Reset timer after any navigation
+    }
+    
+    // Touch event handlers
+    function handleTouchStart(e: TouchEvent) {
+      if (e.touches[0]) {
+        touchStartX = e.touches[0].clientX;
+        isDragging = true;
+        // Pause auto-advance during touch
+        if (autoAdvanceTimer) {
+          clearInterval(autoAdvanceTimer);
+          autoAdvanceTimer = null;
+        }
+        // Remove transition during drag
+        track.style.transition = 'none';
+      }
+    }
+    
+    function handleTouchMove(e: TouchEvent) {
+      if (!isDragging || !e.touches[0] || !slides) return;
+      
+      const currentX = e.touches[0].clientX;
+      const diff = currentX - touchStartX;
+      
+      // Calculate current base position
+      const firstSlide = slides[0] as HTMLElement;
+      const slideWidth = firstSlide.clientWidth;
+      const containerWidth = container.clientWidth;
+      const offset = (containerWidth / 2) - (slideWidth / 2);
+      const baseTranslateX = -currentIndex * slideWidth + offset;
+      
+      // Apply drag offset
+      track.style.transform = `translateX(${baseTranslateX + diff}px)`;
+    }
+    
+    function handleTouchEnd(e: TouchEvent) {
+      if (!isDragging || !e.changedTouches[0]) return;
+      
+      isDragging = false;
+      touchEndX = e.changedTouches[0].clientX;
+      
+      const swipeThreshold = 50; // Minimum distance for a swipe
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swiped left - go to next slide
+          if (currentIndex < totalSlides - 1) {
+            goToSlide(currentIndex + 1, true);
+          } else {
+            goToSlide(0, true);
+          }
+        } else {
+          // Swiped right - go to previous slide
+          if (currentIndex > 0) {
+            goToSlide(currentIndex - 1, true);
+          } else {
+            goToSlide(totalSlides - 1, true);
+          }
+        }
+      } else {
+        // Snap back to current slide if swipe wasn't long enough
+        updateCarousel(true);
+      }
+      
+      // Resume auto-advance after touch
+      startAutoAdvance();
+    }
+    
+    // Add touch event listeners
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container.addEventListener('touchmove', handleTouchMove, { passive: true });
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
+    
+    leftButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        goToSlide(currentIndex - 1);
+      } else {
+        goToSlide(totalSlides - 1);
+      }
+    });
+    
+    rightButton.addEventListener('click', () => {
+      if (currentIndex < totalSlides - 1) {
+        goToSlide(currentIndex + 1);
+      } else {
+        goToSlide(0);
+      }
+    });
+    
+    // Pause auto-advance when hovering over the carousel
+    if (carousel) {
+      carousel.addEventListener('mouseenter', () => {
+        if (autoAdvanceTimer) {
+          clearInterval(autoAdvanceTimer);
+          autoAdvanceTimer = null;
+        }
+      });
+      
+      // Resume auto-advance when mouse leaves
+      carousel.addEventListener('mouseleave', () => {
+        startAutoAdvance();
+      });
+    }
+    
+    // Initialize position and start auto-advance
+    updateCarousel();
+    startAutoAdvance();
+    
+    // Handle image load events for blur-up effect
+    const images = carousel?.querySelectorAll('.carousel-image');
+    images?.forEach(img => {
+      const imgElement = img as HTMLImageElement;
+      if (imgElement.complete) {
+        imgElement.classList.add('loaded');
+      } else {
+        imgElement.addEventListener('load', () => {
+          imgElement.classList.add('loaded');
+        });
+      }
+    });
+    
+    // Update on window resize
+    window.addEventListener('resize', () => updateCarousel());
+    
+    // Clean up timer when page is unloaded
+    window.addEventListener('beforeunload', () => {
+      if (autoAdvanceTimer) {
+        clearInterval(autoAdvanceTimer);
+      }
+    });
+  }
+</script>
+
+<style>
+  .photo-carousel {
+    width: 100%;
+    height: calc(450px + 4rem);
+    max-height: calc(450px + 4rem);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    background-color: var(--red);
+  }
+
+  .carousel-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .carousel-slide {
+    flex: 0 0 calc(450px + 4rem);
+    height: calc(450px + 4rem);
+    max-width: calc(450px + 4rem);
+    max-height: calc(450px + 4rem);
+    padding: 2rem;
+  }
+
+  /* Image container for blur-up effect */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+
+  /* Placeholder with blur effect */
+  .image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+      var(--red) 0%, 
+      var(--brown) 50%, 
+      var(--gold) 100%
+    );
+    filter: blur(20px);
+    transform: scale(1.1);
+    opacity: 0.6;
+    animation: pulse 2s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.3; }
+  }
+
+  /* Main carousel image */
+  .carousel-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  /* Hide placeholder when image loads */
+  .carousel-image[data-loaded="true"],
+  .carousel-image.loaded {
+    opacity: 1;
+  }
+
+  .carousel-image[data-loaded="true"] ~ .image-placeholder,
+  .carousel-image.loaded ~ .image-placeholder {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  /* Legacy fallback for images without container */
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  /* Hover zones */
+  .hover-zone {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 30%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .hover-zone-left {
+    left: 0;
+    justify-content: flex-start;
+    padding-left: 3rem;
+  }
+  
+  .hover-zone-right {
+    right: 0;
+    justify-content: flex-end;
+    padding-right: 3rem;
+  }
+  
+  .carousel-arrow {
+    width: 48px;
+    height: 48px;
+    transition: all 0.3s ease;
+    color: var(--white);
+    opacity: 0;
+    background-color: var(--red);
+    border-radius: 50%;
+    padding: 6px;
+  }
+  
+  .hover-zone:hover .carousel-arrow {
+    opacity: 1;
+  }
+
+  .hover-zone:hover .carousel-arrow {
+    transform: scale(1.2);
+  }
+
+  @media screen and (max-width: 768px) {
+    .photo-carousel {
+      height: min(100vw, calc(450px + 4rem));
+    }
+    
+    .carousel-slide {
+      flex: 0 0 min(100vw, calc(450px + 4rem));
+      height: min(100vw, calc(450px + 4rem));
+      padding: 2rem;
+    }
+    
+    .carousel-arrow {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .hover-zone-left {
+      padding-left: 2.5rem;
+    }
+    
+    .hover-zone-right {
+      padding-right: 2.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .photo-carousel {
+      height: calc(450px + 4rem);
+    }
+    
+    .carousel-slide {
+      flex: 0 0 calc(450px + 4rem);
+      height: calc(450px + 4rem);
+      padding: 2rem;
+    }
+  }
+</style>

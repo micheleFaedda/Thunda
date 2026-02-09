@@ -1,0 +1,87 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="menu-page-header">
+  <div class="breadcrumb-container">
+    <a href="/menu" class="home-link" aria-label="Return to menu">
+      <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9Z"/>
+        <polyline points="9,22 9,12 15,12 15,22"/>
+      </svg>
+    </a>
+  </div>
+  <h1 class="menu-title">{title}</h1>
+</div>
+
+<style>
+  .menu-page-header {
+    position: relative;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .breadcrumb-container {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--white);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .home-link:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .home-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .menu-title {
+    font-size: 3rem;
+    margin: 0;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: var(--brand-font);
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .menu-title {
+      font-size: 2.2rem;
+      letter-spacing: 0.5px;
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .menu-title {
+      font-size: 2.2rem;
+      letter-spacing: 0;
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
+    }
+  }
+</style>

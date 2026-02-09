@@ -1,0 +1,136 @@
+---
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import "@styles/global.css";
+import Menu from "@components/Menu.astro";
+import Footer from "@components/Footer.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Tundha</title>
+		<meta name="description" content="Tundha - La vera pizza sarda a Cagliari. Pizza a lievitazione naturale e lenta con ingredienti sardi e italiani selezionati. Authentic Sardinian pizza with natural fermentation and local ingredients." />
+
+		<!-- Performance optimizations -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="dns-prefetch" href="//fonts.gstatic.com">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+		<!-- GoogleFontsOptimizer handles font loading and optimization -->
+		<GoogleFontsOptimizer
+			url={[
+				"https://fonts.googleapis.com/css2?family=Nunito&display=swap",
+				"https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&display=swap",
+			]}
+		/>
+		
+		<!-- Structured Data for Restaurant SEO -->
+		<script is:inline type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Restaurant",
+			"name": "Tundha",
+			"alternateName": "Tundha di Pbread Natural Bakery",
+			"description": "Nel centro di Cagliari nasce Tundha, pizzeria specializzata nella \"pizza crisp\". Il risultato di un'attenta scelta delle materie prime e della valorizzazione di prodotti locali è una pizza artigianale, leggera, digeribile. La pizza come deve essere.",
+			"disambiguatingDescription": "Pizzeria a Cagliari specializzata nella \"pizza crisp\", attenta alla scelta delle materie prime, alla valorizzazione di prodotti locali e ai processi di lievitazione naturale.",
+			"image": [
+				"https://tundha.it/logo.png",
+				"https://tundha.it/carousel/photo_2025-09-02_20-27-14.jpg",
+				"https://tundha.it/carousel/photo_2025-09-02_20-27-18.jpg",
+				"https://tundha.it/carousel/photo_2025-09-02_20-27-28.jpg"
+			],
+			"logo": "https://tundha.it/logo.png",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Viale Cristoforo Colombo, 2D",
+				"addressLocality": "Cagliari",
+				"postalCode": "09125",
+				"addressCountry": "IT"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": 39.2106281,
+				"longitude": 9.1159901
+			},
+			"url": "https://tundha.it",
+			"telephone": "+390704649121",
+			"servesCuisine": [
+				"Pizza",
+				"Pizza Gourmet",
+				"Pizza napoletana",
+				"Pizza a lievitazione naturale",
+				"Pizza a lievitazione lenta",
+				"Pizza con ingredienti sardi",
+				"Pizza crisp",
+				"Cibo Italiano",
+				"Cibo Sardo",
+				"Taglieri di salumi",
+				"Taglieri di formaggi",
+				"Salumi sardi",
+				"Formaggi sardi",
+				"Bruschette",
+				"Culurgionis",
+				"Birre artigianali",
+				"Birre sarde",
+				"Vini sardi",
+				"Vini italiani",
+				"Vini naturali",
+				"Vini biologici",
+				"Bollicine sarde",
+				"Bollicine italiane",
+				"Bollicine francesi",
+				"Kombucha",
+				"Bevande biologiche",
+				"Succhi biologici",
+				"Bevande analcoliche",
+				"Liquori Silvio Carta",
+				"Dessert di pasticceria",
+				"Dessert gourmet",
+				"Dessert artigianali",
+				"Aperitivo sardo",
+				"Aperitivo gourmet",
+				"Prodotti sardi",
+				"Specialità sarde"
+			],
+			"priceRange": "€€€",
+			"openingHoursSpecification": [
+				{
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+					"opens": "19:00",
+					"closes": "23:30"
+				}
+			],
+			"acceptsReservations": true,
+			"menu": "https://tundha.it/menu",
+			"hasMenu": "https://tundha.it/menu",
+			"sameAs": [
+				"https://www.instagram.com/mr_pbread",
+				"https://www.facebook.com/pbreadnaturalbakery/"
+			],
+			"keywords": "Tundha, pizza, pizza gourmet, pizza sarda, pizza italiana, pizza crisp, pizza artigianale, pizza napoletana, pizza a lievitazione naturale, pizza a lievitazione lenta, pizza con ingredienti sardi, pizza contemporanea, pizza romana, la pizza come deve essere, pizzeria a Cagliari, pizzeria centro Cagliari, pizzeria molo ichnusa, pizzeria viale colombo cagliari, lievitazione naturale, lievitazione lenta, lievito madre, ingredienti sardi, ingredienti a chilometro zero, fermentazione naturale, maturazione lenta, eccellenza italiana, Pbread Natural Bakery, bollicine sarde, bollicine italiane, bollicine francesi, vini sardi, vini italiani, vini biologici, vini naturali, bevande biologiche, dessert artigianali, dessert gourmet, bruschette, culurgionis al forno, tagliere salumi, tagliere formaggi, salumi sardi, formaggi sardi, birre artigianali, birre sarde, bevande biologiche, kombucha, aperitivo artigianale, aperitivo rustico, aperitivo gourmet, aperitivo sardo"
+		}
+		</script>
+	</head>
+	<body>
+		{
+			import.meta.env.DEV ? (
+				<>
+					<Menu />
+					<slot />
+					<Footer />
+				</>
+			) : (
+				<ComingSoon />
+			)
+		}
+	</body>
+</html>

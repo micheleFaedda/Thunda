@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '@styles/page-title.css';
+---
+
+<Layout>
+  <div class="about-container">
+    <h1 class="page-title">Chi Siamo</h1>
+    
+    <div class="content">
+      <section>
+        <h2 class="section-header">La Nostra Storia</h2>
+        <p>Tundha è il nome che abbiamo scelto per conferire consapevolezza al progetto "Pizza" nato nel giugno 2018 all'interno della realtà di Pbread Natural Bakery. In questi 7 anni abbiamo affinato ogni dettaglio, selezionato con cura materie prime e tecniche di fermentazione e maturazione, per offrirti una pizza degna di questo nome.</p>
+        
+        <p>Tundha non è solo una pizzeria, è un'esperienza che porta avanti i valori di Pbread Natural Bakery: rispetto, condivisione e tutela di chi lavora con noi. Ogni giorno ci impegniamo al massimo delle nostre capacità per fare in modo che i nostri ospiti possano vivere la miglior esperienza possibile, a partire dagli ingredienti dei nostri piatti.</p>
+        
+        <p>Selezioniamo materie prime "a chilometro buono", privilegiamo i prodotti locali quando possibile, con un occhio attento alla Sardegna e all'Italia, senza rinunciare a qualche eccellenza dall'estero. Il risultato? Una pizza artigianale, unica, leggera, digeribile. La pizza come deve essere.</p>
+      </section>
+
+      <section>
+        <h2 class="section-header">I Nostri Valori</h2>
+        <ul>
+          <li><strong>Passione</strong></li>
+          <li><strong>Autenticità</strong></li>
+          <li><strong>Prodotti locali</strong></li>
+          <li><strong>Lievitazione naturale</strong></li>
+          <li><strong>Attenzione al dettaglio</strong></li>
+          <li><strong>Rispetto e serietà</strong></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8rem 2rem 3rem;
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+
+  .content {
+    line-height: 1.8;
+    font-family: var(--base-font);
+  }
+
+  section {
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+  }
+
+  h2 {
+    font-family: var(--brand-font);
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    opacity: 0.95;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: bold;
+  }
+
+  ul li strong {
+    color: var(--gold);
+  }
+
+  @media screen and (max-width: 768px) {
+    .about-container {
+      padding: 6rem 1.5rem 2rem;
+    }
+
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    .content {
+      line-height: 1.6;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .about-container {
+      padding: 5rem 1rem 1.5rem;
+    }
+
+
+  }
+</style>

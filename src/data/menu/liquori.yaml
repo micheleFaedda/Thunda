@@ -1,0 +1,147 @@
+title: Liquori
+items:
+  # Amari
+  - name: Mirto Rosso di Sardegna
+    description: Liquore tradizionale sardo dalle bacche di mirto
+    price: 4
+    
+  - name: Mirto Bianco
+    description: Liquore di foglie e bacche bianche di mirto
+    price: 4
+    
+  - name: Filu 'e Ferru
+    description: Acquavite sarda tradizionale
+    price: 5
+    
+  - name: Limoncello
+    description: Liquore di limoni di Sorrento IGP
+    price: 4
+    
+  - name: Amaro del Capo
+    description: Amaro calabrese alle erbe, servito ghiacciato
+    price: 4
+    
+  - name: Averna
+    description: Amaro siciliano dal 1868
+    price: 4
+    
+  - name: Montenegro
+    description: L'amaro italiano per eccellenza
+    price: 4
+    
+  - name: Jägermeister
+    description: Liquore tedesco alle 56 erbe
+    price: 4
+    
+  - name: Sambuca
+    description: Liquore all'anice con mosca
+    price: 4
+    
+  - name: Amaretto di Saronno
+    description: Liquore dolce alle mandorle
+    price: 4
+
+  # Grappe
+  - name: Grappa Bianca
+    description: Grappa giovane morbida
+    price: 5
+    
+  - name: Grappa Barricata
+    description: Invecchiata in legno, ambrata
+    price: 7
+    
+  - name: Grappa di Cannonau
+    description: Grappa sarda da vitigno Cannonau
+    price: 6
+    
+  - name: Grappa di Moscato
+    description: Aromatica e delicata
+    price: 6
+
+  # Whisky
+  - name: Johnnie Walker Red
+    description: Blended Scotch whisky
+    price: 6
+    
+  - name: Johnnie Walker Black
+    description: 12 anni, blend premium
+    price: 8
+    
+  - name: Jack Daniel's
+    description: Tennessee whiskey
+    price: 7
+    
+  - name: Jameson
+    description: Irish whiskey
+    price: 7
+    
+  - name: Glenfiddich 12
+    description: Single malt delle Highlands
+    price: 9
+    
+  - name: Lagavulin 16
+    description: Single malt di Islay, torbato
+    price: 12
+
+  # Rum
+  - name: Havana Club 3 anni
+    description: Rum cubano bianco
+    price: 6
+    
+  - name: Havana Club 7 anni
+    description: Rum cubano invecchiato
+    price: 8
+    
+  - name: Captain Morgan
+    description: Spiced rum caraibico
+    price: 6
+    
+  - name: Diplomatico Reserva
+    description: Rum venezuelano premium
+    price: 10
+    
+  - name: Zacapa 23
+    description: Rum guatemalteco super premium
+    price: 12
+
+  # Gin & Vodka
+  - name: Bombay Sapphire
+    description: London Dry Gin
+    price: 7
+    
+  - name: Hendrick's
+    description: Gin scozzese al cetriolo e rosa
+    price: 9
+    
+  - name: Tanqueray
+    description: London Dry Gin classico
+    price: 7
+    
+  - name: Grey Goose
+    description: Vodka francese premium
+    price: 8
+    
+  - name: Belvedere
+    description: Vodka polacca di lusso
+    price: 8
+    
+  - name: Absolut
+    description: Vodka svedese
+    price: 6
+
+  # Cognac & Brandy
+  - name: Hennessy VS
+    description: Cognac francese
+    price: 8
+    
+  - name: Martell VS
+    description: Cognac single distillery
+    price: 8
+    
+  - name: Vecchia Romagna
+    description: Brandy italiano
+    price: 6
+    
+  - name: Rémy Martin VSOP
+    description: Fine Champagne Cognac
+    price: 10

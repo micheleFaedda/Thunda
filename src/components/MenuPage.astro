@@ -1,0 +1,177 @@
+---
+import MenuPageTitle from './MenuPageTitle.astro';
+import TabsContainer from './TabsContainer.astro';
+import MenuItem from './MenuItem.astro';
+import type { ProcessedMenuItem, ProcessedMenuTab } from '../types/menu';
+
+export interface Props {
+  title: string;
+  tabs?: ProcessedMenuTab[];
+  items?: ProcessedMenuItem[];
+  defaultIcon?: string;
+}
+
+const { title, tabs, items, defaultIcon } = Astro.props;
+
+// If tabs are provided, use tabbed layout. Otherwise, use simple list layout
+const hasMultipleTabs = tabs && tabs.length > 1;
+const hasTabs = tabs && tabs.length > 0;
+---
+
+<div class="menu-container">
+  <MenuPageTitle title={title} />
+  
+  {hasTabs ? (
+    hasMultipleTabs ? (
+      <TabsContainer tabs={tabs.map(tab => ({ id: tab.id, label: tab.label }))}>
+        {tabs.map((tab, index) => (
+          <div class={`tab-content ${index === 0 ? 'active' : ''}`} id={tab.id}>
+            {tab.nestedTabs ? (
+              <div class="nested-tabs-wrapper">
+                <TabsContainer tabs={tab.nestedTabs.map(nestedTab => ({ id: nestedTab.id, label: nestedTab.label }))} nested={true}>
+                  {tab.nestedTabs.map((nestedTab, nestedIndex) => (
+                    <div class={`tab-content ${nestedIndex === 0 ? 'active' : ''}`} id={nestedTab.id}>
+                      <div class="menu-items">
+                        {nestedTab.items?.map((item) => (
+                          <MenuItem 
+                            name={item.name} 
+                            description={item.description}
+                            price={item.price}
+                            defaultIcon={nestedTab.icon || tab.icon || defaultIcon}
+                            {...(item.image && { image: item.image })}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </TabsContainer>
+              </div>
+            ) : tab.items ? (
+              <div class="menu-items">
+                {tab.items.map((item) => (
+                  <MenuItem 
+                    name={item.name} 
+                    description={item.description}
+                    price={item.price}
+                    defaultIcon={tab.icon || defaultIcon}
+                    {...(item.image && { image: item.image })}
+                  />
+                ))}
+              </div>
+            ) : null}
+          </div>
+        ))}
+      </TabsContainer>
+    ) : (
+      tabs[0]?.nestedTabs ? (
+        <div class="nested-tabs-wrapper">
+          <TabsContainer tabs={tabs[0].nestedTabs.map(nestedTab => ({ id: nestedTab.id, label: nestedTab.label }))} nested={true}>
+            {tabs[0].nestedTabs.map((nestedTab, nestedIndex) => (
+              <div class={`tab-content ${nestedIndex === 0 ? 'active' : ''}`} id={nestedTab.id}>
+                <div class="menu-items">
+                  {nestedTab.items?.map((item) => (
+                    <MenuItem 
+                      name={item.name} 
+                      description={item.description}
+                      price={item.price}
+                      defaultIcon={nestedTab.icon || tabs[0]?.icon || defaultIcon}
+                      {...(item.image && { image: item.image })}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </TabsContainer>
+        </div>
+      ) : tabs[0]?.items ? (
+        <div class="menu-items">
+          {tabs[0].items.map((item) => (
+            <MenuItem 
+              name={item.name} 
+              description={item.description}
+              price={item.price}
+              defaultIcon={tabs[0]?.icon || defaultIcon}
+              {...(item.image && { image: item.image })}
+            />
+          ))}
+        </div>
+      ) : null
+    )
+  ) : items ? (
+    <div class="menu-items">
+      {items.map((item) => (
+        <MenuItem 
+          name={item.name} 
+          description={item.description}
+          price={item.price}
+          defaultIcon={defaultIcon}
+          {...(item.image && { image: item.image })}
+        />
+      ))}
+    </div>
+  ) : (
+    <slot />
+  )}
+  
+  <div class="allergen-notice">
+    <p>Per informazioni su allergeni e intolleranze rivolgersi al personale</p>
+  </div>
+</div>
+
+<style>
+  .menu-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0.25rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    overflow-x: visible;
+    min-height: 100vh;
+  }
+
+  .menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nested-tabs-wrapper {
+    margin-top: -0.5rem;
+    overflow-x: visible;
+  }
+
+  .nested-tabs-wrapper :global(.tabs) {
+    background: linear-gradient(135deg, rgba(70, 55, 30, 0.08), rgba(70, 55, 30, 0.04));
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    overflow: visible; /* Allow complete overflow */
+    min-height: 3.5rem; /* Ensure space for indicator */
+    position: relative;
+  }
+
+
+  .nested-tabs-wrapper :global(.nested-tab) {
+    font-size: 0.95em;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .nested-tabs-wrapper :global(.nested-tab.active) {
+    font-size: 1em;
+  }
+  
+  .allergen-notice {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(245, 155, 35, 0.2);
+    text-align: center;
+  }
+  
+  .allergen-notice p {
+    color: var(--white);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin: 0;
+  }
+</style>

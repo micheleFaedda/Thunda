@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="careers-container">
+    <h1>Lavora Con Noi</h1>
+    
+    <div class="content">
+      <section class="intro">
+        <h2 class="section-header">Unisciti al Team Tundha</h2>
+        <p>Siamo sempre alla ricerca di persone appassionate che condividano i nostri valori e il nostro amore per la pizza di qualità. Se credi nella filosofia della pizza come deve essere, potresti essere la persona giusta per il nostro team.</p>
+      </section>
+
+      <section class="application-section">
+        <h2 class="section-header">Come Candidarsi</h2>
+        <p>Se sei interessato a far parte del nostro team, inviaci il tuo curriculum vitae e una breve lettera di presentazione.</p>
+        
+        <div class="contact-methods">
+          <a href="mailto:info@pbread.it?subject=Candidatura - Tundha" class="method-link">
+            <div class="method">
+              <h3>Via Email</h3>
+              <div class="contact-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>info@pbread.it</span>
+              </div>
+            </div>
+          </a>
+          
+          <a href="https://maps.app.goo.gl/mDKfv4KFkKoR4Jc16" target="_blank" rel="noopener noreferrer" class="method-link">
+            <div class="method">
+              <h3>Di Persona</h3>
+              <div class="address">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <span>Viale Cristoforo Colombo, 2D</span>
+                  <span>Cagliari</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .careers-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8rem 2rem 3rem;
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-family: var(--brand-font);
+    color: var(--gold);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  .content {
+    line-height: 1.8;
+    font-family: var(--base-font);
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 0;
+  }
+
+  .intro {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-family: var(--brand-font);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  h3 {
+    font-family: var(--brand-font);
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    opacity: 0.95;
+  }
+
+
+  .application-section {
+    background: rgba(155, 55, 30, 0.15);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+
+  .contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .method-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .method-link:hover {
+    transform: scale(1.05);
+  }
+
+  .method-link:hover .method {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .method-link:hover .contact-link,
+  .method-link:hover .address {
+    color: var(--gold);
+  }
+
+  .method {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+    height: 100%;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+  }
+
+  .address {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+    color: var(--white);
+    transition: color 0.3s ease;
+  }
+
+  .address div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .address span {
+    display: block;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .careers-container {
+      padding: 6rem 1.5rem 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    .content {
+      line-height: 1.6;
+    }
+
+
+    .contact-methods {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .careers-container {
+      padding: 5rem 1rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+  }
+</style>

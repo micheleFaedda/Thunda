@@ -1,0 +1,95 @@
+title: Birre
+items:
+  # Alla Spina
+  - name: Ichnusa Non Filtrata
+    description: Birra sarda, non filtrata, dal gusto pieno e corposo - 0.4L
+    price: 5
+    
+  - name: Ichnusa Non Filtrata
+    description: Birra sarda, non filtrata, dal gusto pieno e corposo - 0.2L
+    price: 3
+    
+  - name: Heineken
+    description: Lager olandese dal gusto equilibrato - 0.4L
+    price: 5
+    
+  - name: Heineken
+    description: Lager olandese dal gusto equilibrato - 0.2L
+    price: 3
+    
+  - name: Messina Cristalli di Sale
+    description: Birra siciliana con cristalli di sale marino - 0.4L
+    price: 6
+    
+  - name: Messina Cristalli di Sale
+    description: Birra siciliana con cristalli di sale marino - 0.2L
+    price: 3.50
+
+  # In Bottiglia
+  - name: Ichnusa
+    description: La classica birra di Sardegna - 33cl
+    price: 4
+    
+  - name: Ichnusa Cruda
+    description: Non pastorizzata, dal gusto autentico - 33cl
+    price: 4.50
+    
+  - name: Ichnusa Limone
+    description: Radler al limone, rinfrescante - 33cl
+    price: 4.50
+
+  - name: Peroni
+    description: Lager italiana dal 1846 - 33cl
+    price: 3.50
+    
+  - name: Nastro Azzurro
+    description: Premium lager italiana - 33cl
+    price: 4
+    
+  - name: Moretti
+    description: L'autentica ricetta dal 1859 - 33cl
+    price: 4
+    
+  - name: Messina
+    description: Birra siciliana di qualità - 33cl
+    price: 4.50
+
+  - name: Corona Extra
+    description: Birra messicana da servire con lime - 33cl
+    price: 5
+    
+  - name: Budweiser
+    description: American lager - 33cl
+    price: 4.50
+    
+  - name: Beck's
+    description: Pilsner tedesca - 33cl
+    price: 4
+    
+  - name: Tennent's
+    description: Lager scozzese - 33cl
+    price: 5
+
+  - name: Guinness
+    description: Stout irlandese, servita alla perfezione - 33cl
+    price: 6
+    
+  - name: Leffe Blonde
+    description: Birra d'abbazia belga - 33cl
+    price: 5.50
+    
+  - name: Leffe Rouge
+    description: Birra d'abbazia ambrata - 33cl
+    price: 5.50
+    
+  - name: Desperados
+    description: Birra aromatizzata alla tequila - 33cl
+    price: 5
+
+  - name: Heineken 0.0
+    description: Tutto il gusto, zero alcol - 33cl
+    price: 3.50
+    
+  - name: Peroni Libera
+    description: Birra analcolica italiana - 33cl
+    price: 3.50

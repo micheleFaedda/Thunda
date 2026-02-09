@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+:root {
+  --brown: #46371e;
+  --gold: #f59b23;
+  --white: #e6d2b4;
+  --red: #9b371e;
+  --black: #0f0a08;
+
+  --background: var(--brown);
+
+  --base-font: "Nunito";
+  --brand-font: "Averia Serif Libre";
+}
+
+body {
+  background-color: var(--background);
+  color: var(--white);
+  font-family: var(--base-font);
+  font-size: 1.1rem;
+}
+
+section {
+  padding: 2rem 0;
+}
+section .title {
+  text-align: center;
+}
+section .body {
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--brand-font);
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+.section-header {
+  color: var(--white);
+}

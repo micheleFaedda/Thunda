@@ -1,0 +1,147 @@
+title: Vini
+tabs:
+  - id: calice
+    label: Al Calice
+    items:
+      # Bianchi
+      - name: Vermentino di Sardegna DOC
+        description: Cantina Sella & Mosca - Fresco, aromatico con note di agrumi e fiori bianchi
+        price: 6
+        
+      - name: Nuragus di Cagliari DOC
+        description: Cantina Argiolas - Vino sardo tradizionale, secco e minerale
+        price: 5
+        
+      - name: Torbato Terre Bianche
+        description: Cantina Sella & Mosca - Elegante, con note di frutta tropicale
+        price: 7
+        
+      - name: Falanghina del Sannio DOC
+        description: Campania - Fruttato con sentori di mela verde e pera
+        price: 6
+        
+      # Rossi
+      - name: Cannonau di Sardegna DOC Riserva
+        description: Cantina di Jerzu - Corposo, intenso, con note di frutti rossi maturi
+        price: 8
+        
+      - name: Monica di Sardegna DOC
+        description: Cantina Santadi - Morbido, fruttato con tannini delicati
+        price: 6
+        
+      - name: Carignano del Sulcis DOC
+        description: Cantina Mesa - Strutturato, con note speziate e di macchia mediterranea
+        price: 7
+        
+      - name: Nero d'Avola Sicilia DOC
+        description: Planeta - Intenso, con note di ciliegia e spezie
+        price: 7
+        
+      # Rosé
+      - name: Rosé di Sardegna
+        description: Cantina Argiolas - Fresco e fruttato, ideale con le pizze
+        price: 6
+        
+      # Bollicine
+      - name: Prosecco Valdobbiadene DOCG
+        description: Extra Dry, con perlage fine e persistente
+        price: 7
+        
+      - name: Franciacorta DOCG Brut
+        description: Metodo classico, elegante e raffinato
+        price: 10
+        
+      - name: Moscato d'Asti DOCG
+        description: Dolce e aromatico, perfetto con i dessert
+        price: 6
+
+  - id: bottiglia
+    label: In Bottiglia
+    nestedTabs:
+      - id: bianchi
+        label: Bianchi
+        items:
+          - name: Vermentino di Gallura DOCG
+            description: Cantina Surrau, Arzachena - Minerale e sapido
+            price: 28
+            
+          - name: Torbato Terre Bianche
+            description: Sella & Mosca, Alghero - Elegante e fruttato
+            price: 32
+            
+          - name: Vernaccia di Oristano DOC
+            description: Contini, Cabras - Complesso e strutturato
+            price: 38
+            
+          - name: Nuragus di Cagliari DOC
+            description: Cantina di Dolianova - Fresco e leggero
+            price: 22
+            
+          - name: Costamolino Vermentino
+            description: Argiolas, Serdiana - Aromatico e persistente
+            price: 26
+
+      - id: rossi
+        label: Rossi
+        items:
+          - name: Cannonau di Sardegna DOC
+            description: Sella & Mosca, Alghero - Tradizionale e robusto
+            price: 32
+            
+          - name: Turriga
+            description: Argiolas, Serdiana - Rosso IGT di eccellenza
+            price: 85
+            
+          - name: Carignano del Sulcis DOC
+            description: Cantina Mesa, Sant'Anna Arresi - Intenso e speziato
+            price: 35
+            
+          - name: Monica di Sardegna DOC
+            description: Cantina Sociale di Dorgali - Morbido e fruttato
+            price: 24
+            
+          - name: Bovale
+            description: Cantina di Mogoro - Carattere sardo autentico
+            price: 26
+            
+          - name: Barrua
+            description: Agricola Punica - Blend di Carignano e Cabernet
+            price: 65
+
+      - id: rosati
+        label: Rosati
+        items:
+          - name: Rosa Rosa
+            description: Sella & Mosca - Rosato fresco e fruttato
+            price: 24
+            
+          - name: Rosé di Alghero
+            description: Cantina Santa Maria La Palma - Delicato ed elegante
+            price: 22
+            
+          - name: Korem Isola dei Nuraghi
+            description: Argiolas - Rosato di carattere
+            price: 28
+
+      - id: bollicine
+        label: Bollicine
+        items:
+          - name: Franciacorta Brut DOCG
+            description: Ca' del Bosco - Metodo classico d'eccellenza
+            price: 45
+            
+          - name: Prosecco Superiore Valdobbiadene DOCG
+            description: Bisol - Extra Dry, perlage fine
+            price: 28
+            
+          - name: Trentodoc Riserva
+            description: Ferrari - Metodo classico, lungo affinamento
+            price: 55
+            
+          - name: Moscato d'Asti DOCG
+            description: Paolo Saracco - Dolce e aromatico
+            price: 26
+            
+          - name: Vermentino Brut
+            description: Sella & Mosca - Spumante sardo metodo Charmat
+            price: 30

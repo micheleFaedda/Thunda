@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/Layout.astro';
+import MenuPage from '@components/MenuPage.astro';
+import { wineCaliceIcon, wineBottigliaIcon } from '../../constants/menuIcons';
+import { loadMenuData } from '../../utils/menuLoader';
+
+// Load menu data from YAML
+const menuData = await loadMenuData('vini');
+
+// Map icons to tabs
+const iconMap: Record<string, string> = {
+  'calice': wineCaliceIcon,
+  'bottiglia': wineBottigliaIcon
+};
+
+// Add icons to tabs
+const tabs = menuData.tabs?.map(tab => ({
+  ...tab,
+  icon: iconMap[tab.id] || ''
+})) || [];
+---
+
+<Layout title="Vini - Menu - Tundha">
+  <MenuPage title={menuData.title} tabs={tabs} />
+</Layout>

@@ -1,0 +1,23 @@
+title: Per Iniziare
+items:
+  - name: Bruschetta Classica
+    description: Pane tostato con pomodorini freschi, basilico e aglio
+    price: 8
+    image: bruschetta.jpg
+    
+  - name: Tagliere Sardo
+    description: Selezione di salumi e formaggi tipici della Sardegna con prosciutto crudo stagionato 24 mesi, coppa di testa, salsiccia secca, pecorino romano DOP, caciocavallo podolico, accompagnati da miele di corbezzolo, confettura di fichi e pane carasau croccante
+    price: 18
+    image: tagliere.jpg
+    
+  - name: Olive Ascolane
+    description: Olive verdi ripiene di carne, impanate e fritte
+    price: 10
+    
+  - name: Calamari Fritti
+    description: Anelli di calamaro dorati con salsa aioli
+    price: 12
+    
+  - name: Caprese
+    description: Mozzarella di bufala, pomodori e basilico fresco
+    price: 11

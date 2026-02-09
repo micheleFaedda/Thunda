@@ -1,0 +1,20 @@
+.page-title {
+  font-family: var(--brand-font);
+  color: var(--gold);
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page-title {
+    font-size: 1.75rem;
+  }
+}

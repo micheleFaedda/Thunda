@@ -1,0 +1,1080 @@
+---
+import Layout from '@layouts/Layout.astro';
+import '@styles/page-title.css';
+---
+
+<Layout title="Menu - Tundha">
+  <div class="menu-container">
+    <div class="menu-header">
+      <h1 class="page-title">Il Nostro Menu</h1>
+    </div>
+    
+    <div class="menu-sections">
+      <a href="/menu/per-iniziare" class="menu-section appetizer-section">
+        <svg class="menu-icon cutlery-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Fork -->
+          <path d="M5 2L5 8C5 9 5.5 10 6.5 10C7.5 10 8 9 8 8L8 2" stroke="white" stroke-width="1.5"/>
+          <line x1="6.5" y1="2" x2="6.5" y2="6" stroke="white" stroke-width="1.5"/>
+          <line x1="6.5" y1="10" x2="6.5" y2="22" stroke="white" stroke-width="1.5"/>
+          
+          <!-- Knife -->
+          <path d="M17.5 2L17.5 10C17.5 10 17.5 11 16.5 11C15.5 11 15.5 10 15.5 10L15.5 2C15.5 2 17.5 2 17.5 2Z" stroke="white" stroke-width="1.5"/>
+          <line x1="16.5" y1="11" x2="16.5" y2="22" stroke="white" stroke-width="1.5"/>
+        </svg>
+        <div class="plate-setting-container">
+          <svg class="plate-svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+            <!-- Plate circles -->
+            <circle class="plate-outer" cx="100" cy="100" r="70" stroke="white" stroke-width="2" fill="none" opacity="0"/>
+            <circle class="plate-inner" cx="100" cy="100" r="50" stroke="white" stroke-width="1.5" fill="none" opacity="0"/>
+            <!-- Fork on left -->
+            <g class="fork-setting" opacity="0">
+              <path d="M40 70 L40 90 C40 94 42 96 44 96 C46 96 48 94 48 90 L48 70" stroke="white" stroke-width="2" fill="none"/>
+              <line x1="44" y1="70" x2="44" y2="84" stroke="white" stroke-width="2"/>
+              <line x1="44" y1="96" x2="44" y2="130" stroke="white" stroke-width="2"/>
+            </g>
+            <!-- Knife on right -->
+            <g class="knife-setting" opacity="0">
+              <path d="M156 70 L156 96 C156 96 156 98 154 98 C152 98 152 96 152 96 L152 70 C152 70 156 70 156 70Z" stroke="white" stroke-width="2" fill="none"/>
+              <line x1="154" y1="98" x2="154" y2="130" stroke="white" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+        <h2 class="section-header">Per Iniziare</h2>
+      </a>
+      <a href="/menu/pizze" class="menu-section pizze-section">
+        <svg class="menu-icon pizza-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Pizza slice outline -->
+          <path d="M12 2 L4 20 L20 20 Z" stroke="white" stroke-width="1.5" fill="none"/>
+          <!-- Crust line -->
+          <line x1="4.5" y1="19" x2="19.5" y2="19" stroke="white" stroke-width="2"/>
+          <!-- Pepperoni circles -->
+          <circle cx="9" cy="12" r="1.5" stroke="white" stroke-width="1" fill="none"/>
+          <circle cx="15" cy="11" r="1.5" stroke="white" stroke-width="1" fill="none"/>
+          <circle cx="12" cy="15" r="1.5" stroke="white" stroke-width="1" fill="none"/>
+          <!-- Smaller toppings -->
+          <circle cx="10" cy="8" r="0.5" fill="white"/>
+          <circle cx="14" cy="8" r="0.5" fill="white"/>
+          <circle cx="12" cy="10" r="0.5" fill="white"/>
+        </svg>
+        <div class="pizza-fire-container">
+          <svg class="fire-svg" width="120" height="80" viewBox="0 0 120 80" fill="none">
+            <!-- Individual flame elements -->
+            <path class="flame-element flame-1" d="M20 70 C20 70 18 60 20 50 C22 40 24 45 25 55 C26 65 20 70 20 70Z" stroke="white" stroke-width="1.5" fill="none"/>
+            <path class="flame-element flame-2" d="M35 70 C35 70 32 55 35 40 C38 25 40 35 42 50 C44 65 35 70 35 70Z" stroke="white" stroke-width="1.5" fill="none"/>
+            <path class="flame-element flame-3" d="M50 70 C50 70 48 60 50 45 C52 30 54 40 55 55 C56 65 50 70 50 70Z" stroke="white" stroke-width="1.5" fill="none"/>
+            <path class="flame-element flame-4" d="M65 70 C65 70 63 58 65 48 C67 38 69 43 70 56 C71 66 65 70 65 70Z" stroke="white" stroke-width="1.5" fill="none"/>
+            <path class="flame-element flame-5" d="M80 70 C80 70 78 62 80 52 C82 42 84 47 85 58 C86 67 80 70 80 70Z" stroke="white" stroke-width="1.5" fill="none"/>
+            <path class="flame-element flame-6" d="M95 70 C95 70 93 60 95 50 C97 40 99 45 100 55 C101 65 95 70 95 70Z" stroke="white" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <h2 class="section-header">Pizze</h2>
+      </a>
+      <a href="/menu/dessert" class="menu-section dessert-section">
+        <svg class="menu-icon dessert-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Ice cream cup -->
+          <path d="M7 8 Q7 11 12 14 Q17 11 17 8 Z" stroke="white" stroke-width="1.5" fill="none"/>
+          <!-- Cup stem -->
+          <line x1="12" y1="14" x2="12" y2="19" stroke="white" stroke-width="1.5"/>
+          <!-- Cup base -->
+          <ellipse cx="12" cy="20" rx="4" ry="1" stroke="white" stroke-width="1.5" fill="none"/>
+          <!-- Ice cream scoop -->
+          <circle cx="12" cy="7" r="3" stroke="white" stroke-width="1.5" fill="none"/>
+          <!-- Cherry on top -->
+          <circle cx="12" cy="4" r="1" stroke="white" stroke-width="1" fill="none"/>
+          <path d="M12 3 Q13 2 14 1.5" stroke="white" stroke-width="1"/>
+        </svg>
+        <div class="dessert-animation-container">
+          <svg class="ice-cream-svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
+            <!-- Define clipping mask for bowl -->
+            <defs>
+              <clipPath id="bowl-clip">
+                <!-- Rectangle that covers everything above the bowl rim -->
+                <rect x="0" y="0" width="100" height="55" fill="white"/>
+              </clipPath>
+            </defs>
+            
+            <!-- Bowl -->
+            <path class="bowl" d="M35 70 Q35 72 50 72 Q65 72 65 70 L75 55 L25 55 Z" stroke="white" stroke-width="2" fill="none"/>
+            <!-- Bowl rim -->
+            <ellipse class="bowl-rim" cx="50" cy="55" rx="25" ry="3" stroke="white" stroke-width="1.5" fill="none"/>
+            
+            <!-- Group for ice cream scoops with clipping -->
+            <g clip-path="url(#bowl-clip)">
+              <!-- First scoop - vanilla -->
+              <circle class="scoop scoop-1" cx="35" cy="20" r="8" stroke="white" stroke-width="2" fill="none"/>
+              <!-- Texture lines -->
+              <path class="scoop scoop-1" d="M30 18 Q35 16 40 18" stroke="white" stroke-width="0.8" opacity="0.6"/>
+              <path class="scoop scoop-1" d="M31 21 Q35 19 39 21" stroke="white" stroke-width="0.8" opacity="0.6"/>
+              
+              <!-- Second scoop - chocolate -->
+              <circle class="scoop scoop-2" cx="50" cy="15" r="8" stroke="white" stroke-width="2" fill="none"/>
+              <!-- Swirl pattern -->
+              <path class="scoop scoop-2" d="M45 13 Q50 11 55 13 Q52 15 50 15 Q48 15 45 17" stroke="white" stroke-width="0.8" opacity="0.6"/>
+              
+              <!-- Third scoop - strawberry -->
+              <circle class="scoop scoop-3" cx="65" cy="20" r="8" stroke="white" stroke-width="2" fill="none"/>
+              <!-- Dots for texture -->
+              <circle class="scoop scoop-3" cx="62" cy="19" r="0.5" fill="white" opacity="0.6"/>
+              <circle class="scoop scoop-3" cx="68" cy="18" r="0.5" fill="white" opacity="0.6"/>
+              <circle class="scoop scoop-3" cx="65" cy="22" r="0.5" fill="white" opacity="0.6"/>
+            </g>
+          </svg>
+        </div>
+        <h2 class="section-header">Dessert</h2>
+      </a>
+      <a href="/menu/vini" class="menu-section wine-section">
+        <svg class="menu-icon wine-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 2h8l1 7c0 2.21-1.79 4-4 4h-2c-2.21 0-4-1.79-4-4l1-7z"/>
+          <line x1="12" y1="13" x2="12" y2="21"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+        </svg>
+        <div class="wine-glass-container">
+          <svg class="wine-glass-svg" width="240" height="300" viewBox="0 0 30 40" fill="none">
+            <!-- Wine glass bowl -->
+            <path d="M8 5 Q8 12 15 18 Q22 12 22 5 Z" stroke="white" stroke-width="1.5" fill="none"/>
+            <!-- Stem -->
+            <line x1="15" y1="18" x2="15" y2="32" stroke="white" stroke-width="1"/>
+            <!-- Base -->
+            <ellipse cx="15" cy="35" rx="6" ry="2" stroke="white" stroke-width="1" fill="none"/>
+            <!-- Wine inside (animated) -->
+            <path class="wine-liquid" d="M10 7 Q10 10 15 13 Q20 10 20 7 Z" stroke="white" stroke-width="0.5" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+        </div>
+        <h2 class="section-header">Vini</h2>
+      </a>
+      <a href="/menu/birre" class="menu-section beer-section">
+        <svg class="menu-icon beer-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- German beer mug body -->
+          <rect x="4" y="7" width="12" height="14" rx="1" stroke="white" stroke-width="1.5" fill="none"/>
+          <!-- Handle -->
+          <path d="M16 9 Q19 9 19 12.5 L19 16.5 Q19 20 16 20" stroke="white" stroke-width="1.5" fill="none"/>
+          <!-- Foam top -->
+          <ellipse cx="10" cy="7" rx="6" ry="2.5" stroke="white" stroke-width="1.5" fill="none"/>
+          <ellipse cx="8" cy="5.5" rx="3" ry="2" stroke="white" stroke-width="1.2" fill="none"/>
+          <ellipse cx="12" cy="5.5" rx="3" ry="2" stroke="white" stroke-width="1.2" fill="none"/>
+          <!-- Beer level line -->
+          <line x1="5" y1="11" x2="15" y2="11" stroke="white" stroke-width="1" opacity="0.6"/>
+        </svg>
+        <div class="beer-bubbles">
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+          <span class="bubble"></span>
+        </div>
+        <h2 class="section-header">Birre</h2>
+      </a>
+      <a href="/menu/liquori" class="menu-section liquor-section">
+        <svg class="menu-icon liquor-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="12" width="8" height="8" rx="1"/>
+          <path d="M10 8V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v3"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+        </svg>
+        <div class="liquor-bottle-container">
+          <svg class="liquor-bottle" width="24" height="40" viewBox="0 0 24 40" fill="none">
+            <!-- Bottle neck -->
+            <path d="M10 2 L10 8 L8 10 L8 14" stroke="white" stroke-width="1" fill="none"/>
+            <path d="M14 2 L14 8 L16 10 L16 14" stroke="white" stroke-width="1" fill="none"/>
+            <!-- Cap -->
+            <rect x="9" y="0" width="6" height="3" rx="1" stroke="white" stroke-width="1" fill="none"/>
+            <!-- Bottle body -->
+            <rect x="6" y="14" width="12" height="24" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+            <!-- Label -->
+            <rect x="8" y="20" width="8" height="10" rx="1" stroke="white" stroke-width="0.5" opacity="0.6"/>
+          </svg>
+        </div>
+        <h2 class="section-header">Liquori</h2>
+      </a>
+      <a href="/menu/analcolici-caffetteria" class="menu-section coffee-section">
+        <svg class="menu-icon coffee-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+          <path d="M2 8h16v9a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V8z"/>
+          <line x1="6" y1="1" x2="6" y2="4"/>
+          <line x1="10" y1="1" x2="10" y2="4"/>
+          <line x1="14" y1="1" x2="14" y2="4"/>
+        </svg>
+        <div class="coffee-beans">
+          <svg class="bean" width="10" height="14" viewBox="0 0 10 14" fill="white">
+            <ellipse cx="5" cy="7" rx="4" ry="6"/>
+            <path d="M5 2 Q5 7 5 12" stroke="rgba(0,0,0,0.3)" stroke-width="0.5"/>
+          </svg>
+          <svg class="bean" width="10" height="14" viewBox="0 0 10 14" fill="white">
+            <ellipse cx="5" cy="7" rx="4" ry="6"/>
+            <path d="M5 2 Q5 7 5 12" stroke="rgba(0,0,0,0.3)" stroke-width="0.5"/>
+          </svg>
+          <svg class="bean" width="10" height="14" viewBox="0 0 10 14" fill="white">
+            <ellipse cx="5" cy="7" rx="4" ry="6"/>
+            <path d="M5 2 Q5 7 5 12" stroke="rgba(0,0,0,0.3)" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <h2 class="section-header">Analcolici & Caffetteria</h2>
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .menu-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+    min-height: 100vh;
+  }
+
+  .menu-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+
+
+  .subtitle {
+    color: var(--white);
+    font-size: 1.2rem;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  .menu-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem;
+    padding: 0 1rem;
+  }
+
+  .menu-section {
+    position: relative;
+    text-decoration: none;
+    padding: 1.2rem 1.5rem;
+    border-radius: 6px;
+    background: var(--red);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    min-height: 60px;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 0.8rem;
+  }
+
+  /* Alternating left-right alignment pattern */
+  .appetizer-section {
+    transform: translateX(0) rotate(-0.15deg);
+    border-radius: 6px 7px 6px 7px;
+    margin-left: 0;
+    margin-right: auto;
+    width: calc(100% - 20px);
+    transform-origin: left center;
+  }
+
+  .pizze-section {
+    transform: translateX(0) rotate(0.1deg);
+    border-radius: 7px 6px 7px 6px;
+    margin-left: auto;
+    margin-right: 0;
+    width: calc(100% - 20px);
+    transform-origin: right center;
+  }
+
+  .dessert-section {
+    transform: translateX(0) rotate(-0.1deg);
+    border-radius: 6px 6px 7px 7px;
+    margin-left: 0;
+    margin-right: auto;
+    width: calc(100% - 20px);
+    transform-origin: left center;
+  }
+
+  .wine-section {
+    transform: translateX(0) rotate(0.15deg);
+    border-radius: 7px 7px 6px 6px;
+    margin-left: auto;
+    margin-right: 0;
+    width: calc(100% - 20px);
+    transform-origin: right center;
+  }
+
+  .beer-section {
+    transform: translateX(0) rotate(-0.12deg);
+    border-radius: 7px 6px 6px 7px;
+    margin-left: 0;
+    margin-right: auto;
+    width: calc(100% - 20px);
+    transform-origin: left center;
+  }
+
+  .liquor-section {
+    transform: translateX(0) rotate(0.08deg);
+    border-radius: 6px 7px 7px 6px;
+    margin-left: auto;
+    margin-right: 0;
+    width: calc(100% - 20px);
+    transform-origin: right center;
+  }
+
+  .coffee-section {
+    transform: translateX(0) rotate(-0.08deg);
+    border-radius: 6px 6px 7px 6px;
+    margin-left: 0;
+    margin-right: auto;
+    width: calc(100% - 20px);
+    transform-origin: left center;
+  }
+  
+  .menu-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    transition: transform 0.3s ease;
+    color: white;
+  }
+
+
+  .menu-section:hover {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background: var(--gold);
+    border: 2px solid var(--gold);
+  }
+  
+  .menu-section:hover h2 {
+    color: var(--white);
+  }
+  
+  .menu-section:hover .menu-icon {
+    color: white;
+  }
+
+  /* Individual icon animations */
+  .menu-section:hover .fork-icon {
+    animation: fork-lift 0.5s ease-in-out;
+  }
+
+  .menu-section:hover .pizza-icon {
+    animation: pizza-spin 0.6s ease-in-out;
+  }
+
+  .menu-section:hover .dessert-icon {
+    animation: dessert-bounce 0.5s ease-in-out;
+  }
+
+  .menu-section:hover .wine-icon {
+    animation: wine-swirl 0.6s ease-in-out;
+  }
+
+  .menu-section:hover .beer-icon {
+    animation: beer-bubble 0.5s ease-in-out;
+  }
+
+  /* Beer bubbles animation */
+  .beer-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .beer-bubbles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .beer-section:hover .beer-bubbles {
+    opacity: 1;
+  }
+
+  .bubble {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    bottom: -10px;
+    animation: bubble-rise 2s linear infinite;
+  }
+
+  .bubble:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+    animation-duration: 2.5s;
+  }
+
+  .bubble:nth-child(2) {
+    left: 35%;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+    width: 3px;
+    height: 3px;
+  }
+
+  .bubble:nth-child(3) {
+    left: 50%;
+    animation-delay: 0.8s;
+    animation-duration: 2.3s;
+  }
+
+  .bubble:nth-child(4) {
+    left: 65%;
+    animation-delay: 1.2s;
+    animation-duration: 1.8s;
+    width: 5px;
+    height: 5px;
+  }
+
+  .bubble:nth-child(5) {
+    left: 75%;
+    animation-delay: 1.6s;
+    animation-duration: 2.1s;
+    width: 3px;
+    height: 3px;
+  }
+
+  .bubble:nth-child(6) {
+    left: 45%;
+    animation-delay: 2s;
+    animation-duration: 2.4s;
+  }
+
+  @keyframes bubble-rise {
+    0% {
+      bottom: -10px;
+      opacity: 0;
+      transform: translateX(0) scale(0.8);
+    }
+    10% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 0.9;
+      transform: translateX(5px) scale(1);
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      bottom: 100%;
+      opacity: 0;
+      transform: translateX(-5px) scale(0.6);
+    }
+  }
+
+  .menu-section:hover .liquor-icon {
+    animation: liquor-shake 0.5s ease-in-out;
+  }
+
+  .menu-section:hover .coffee-icon {
+    animation: coffee-steam 0.6s ease-in-out;
+  }
+
+  /* Steam animation for Per Iniziare */
+  .appetizer-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .plate-setting-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  
+  .plate-svg {
+    opacity: 0.8;
+  }
+  
+  .appetizer-section:hover .plate-outer {
+    animation: plate-appear 0.6s ease-out forwards;
+  }
+  
+  .appetizer-section:hover .plate-inner {
+    animation: plate-appear 0.6s ease-out 0.1s forwards;
+  }
+  
+  .fork-setting {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  .knife-setting {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  
+  .appetizer-section:hover .fork-setting {
+    animation: utensil-slide-in-left 0.5s ease-out 0.3s forwards;
+  }
+  
+  .appetizer-section:hover .knife-setting {
+    animation: utensil-slide-in-right 0.5s ease-out 0.3s forwards;
+  }
+  
+  @keyframes plate-appear {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes utensil-slide-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px) rotate(-15deg);
+    }
+    100% {
+      opacity: 0.9;
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+  
+  @keyframes utensil-slide-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(30px) rotate(15deg);
+    }
+    100% {
+      opacity: 0.9;
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+
+  /* Cherry bounce animation for Dessert */
+  .dessert-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dessert-animation-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .dessert-section:hover .dessert-animation-container {
+    opacity: 1;
+  }
+
+  .ice-cream-svg {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) translateY(-5px);
+    opacity: 0.9;
+  }
+
+  /* Bowl appears first */
+  .bowl, .bowl-rim {
+    opacity: 0;
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+
+  .dessert-section:hover .bowl,
+  .dessert-section:hover .bowl-rim {
+    animation: bowl-appear 0.5s ease-out forwards;
+  }
+
+  @keyframes bowl-appear {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Ice cream scoops start above and fall */
+  .scoop {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  .dessert-section:hover .scoop-1 {
+    animation: scoop-fall 0.8s ease-in 0.3s forwards;
+  }
+
+  .dessert-section:hover .scoop-2 {
+    animation: scoop-fall 0.8s ease-in 0.5s forwards;
+  }
+
+  .dessert-section:hover .scoop-3 {
+    animation: scoop-fall 0.8s ease-in 0.7s forwards;
+  }
+
+  @keyframes scoop-fall {
+    0% {
+      opacity: 0;
+      transform: translateY(-40px) rotate(0deg);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(-30px) rotate(-5deg);
+    }
+    40% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+    60% {
+      transform: translateY(12px) rotate(-3deg);
+    }
+    75% {
+      transform: translateY(24px) rotate(2deg);
+    }
+    85% {
+      transform: translateY(30px) rotate(0deg);
+    }
+    90% {
+      transform: translateY(33px) rotate(0deg);
+    }
+    95% {
+      transform: translateY(31px) rotate(0deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(32px) rotate(0deg);
+    }
+  }
+
+  /* Wine glass for Vini */
+  .wine-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wine-glass-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .wine-section:hover .wine-glass-container {
+    opacity: 1;
+  }
+
+  .wine-glass-svg {
+    position: absolute;
+    right: 20px;
+    top: -40px;
+    transform: rotate(0deg);
+    opacity: 0.8;
+    transform-origin: center bottom;
+  }
+
+  .wine-droplets {
+    position: absolute;
+    right: 40px;
+    top: 30%;
+    pointer-events: none;
+  }
+
+  .droplet {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  .wine-section:hover .droplet {
+    animation: droplet-fly 2s ease-out infinite;
+  }
+
+  .droplet:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+
+  .droplet:nth-child(2) {
+    animation-delay: 0.6s;
+    left: 10px;
+  }
+
+  .droplet:nth-child(3) {
+    animation-delay: 0.9s;
+    left: -5px;
+  }
+
+  @keyframes droplet-fly {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-30px, -40px);
+      opacity: 0;
+    }
+  }
+
+  .wine-section:hover .wine-glass-svg {
+    animation: wine-swirl 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .wine-liquid {
+    transform-origin: center;
+    opacity: 0.8;
+  }
+
+  .wine-section:hover .wine-liquid {
+    animation: wine-liquid-movement 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes wine-liquid-movement {
+    0%, 100% {
+      transform: rotate(0deg) skewX(0deg);
+    }
+    15% {
+      transform: rotate(-5deg) skewX(-10deg);
+    }
+    30% {
+      transform: rotate(-8deg) skewX(-15deg);
+    }
+    50% {
+      transform: rotate(0deg) skewX(0deg);
+    }
+    70% {
+      transform: rotate(8deg) skewX(15deg);
+    }
+    85% {
+      transform: rotate(5deg) skewX(10deg);
+    }
+  }
+
+  @keyframes wine-swirl {
+    0% {
+      transform: rotate(0deg);
+    }
+    15% {
+      transform: rotate(-15deg);
+    }
+    30% {
+      transform: rotate(-20deg);
+    }
+    40% {
+      transform: rotate(-15deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    60% {
+      transform: rotate(15deg);
+    }
+    70% {
+      transform: rotate(20deg);
+    }
+    85% {
+      transform: rotate(15deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  /* Liquor bottle animation */
+  .liquor-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquor-bottle-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .liquor-section:hover .liquor-bottle-container {
+    opacity: 1;
+  }
+
+  .liquor-bottle {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%) scale(2);
+    opacity: 0.8;
+  }
+
+  .liquor-section:hover .liquor-bottle {
+    animation: bottle-shake 0.8s ease-in-out infinite;
+  }
+
+  @keyframes bottle-shake {
+    0%, 100% {
+      transform: translateY(-50%) scale(2) rotate(0deg);
+    }
+    20% {
+      transform: translateY(-50%) scale(2) rotate(-3deg);
+    }
+    40% {
+      transform: translateY(-50%) scale(2) rotate(3deg);
+    }
+    60% {
+      transform: translateY(-50%) scale(2) rotate(-2deg);
+    }
+    80% {
+      transform: translateY(-50%) scale(2) rotate(2deg);
+    }
+  }
+
+  /* Coffee beans for Analcolici */
+  .coffee-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .coffee-beans {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .coffee-section:hover .coffee-beans {
+    opacity: 1;
+  }
+
+  .bean {
+    position: absolute;
+    width: 10px;
+    height: 14px;
+    opacity: 0.8;
+    animation: bean-fall 2.5s ease-in-out infinite;
+  }
+
+  .bean:nth-child(1) {
+    top: -10px;
+    left: 20%;
+    animation-delay: 0s;
+  }
+
+  .bean:nth-child(2) {
+    top: -10px;
+    left: 50%;
+    animation-delay: 0.7s;
+  }
+
+  .bean:nth-child(3) {
+    top: -10px;
+    left: 75%;
+    animation-delay: 1.4s;
+  }
+
+  @keyframes bean-fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(60px) rotate(180deg);
+      opacity: 0;
+    }
+  }
+
+  /* Pizza fire animation */
+  .pizze-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pizza-fire-container {
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .pizze-section:hover .pizza-fire-container {
+    opacity: 0.8;
+  }
+
+  .fire-svg {
+    opacity: 0.9;
+  }
+
+  .flame-element {
+    transform-origin: bottom center;
+  }
+
+  .pizze-section:hover .flame-1 {
+    animation: flame-dance-1 0.5s ease-in-out infinite alternate;
+  }
+
+  .pizze-section:hover .flame-2 {
+    animation: flame-dance-2 0.7s ease-in-out infinite alternate;
+  }
+
+  .pizze-section:hover .flame-3 {
+    animation: flame-dance-3 0.6s ease-in-out infinite alternate;
+  }
+
+  .pizze-section:hover .flame-4 {
+    animation: flame-dance-4 0.65s ease-in-out infinite alternate;
+  }
+
+  .pizze-section:hover .flame-5 {
+    animation: flame-dance-5 0.55s ease-in-out infinite alternate;
+  }
+
+  .pizze-section:hover .flame-6 {
+    animation: flame-dance-6 0.6s ease-in-out infinite alternate;
+  }
+
+  @keyframes flame-dance-1 {
+    0% {
+      transform: scaleY(1) skewX(-2deg);
+    }
+    100% {
+      transform: scaleY(1.2) skewX(3deg);
+    }
+  }
+
+  @keyframes flame-dance-2 {
+    0% {
+      transform: scaleY(0.9) skewX(2deg);
+    }
+    100% {
+      transform: scaleY(1.3) skewX(-4deg);
+    }
+  }
+
+  @keyframes flame-dance-3 {
+    0% {
+      transform: scaleY(1) skewX(-3deg);
+    }
+    100% {
+      transform: scaleY(1.15) skewX(2deg);
+    }
+  }
+
+  @keyframes flame-dance-4 {
+    0% {
+      transform: scaleY(0.95) skewX(3deg);
+    }
+    100% {
+      transform: scaleY(1.25) skewX(-2deg);
+    }
+  }
+
+  @keyframes flame-dance-5 {
+    0% {
+      transform: scaleY(1) skewX(-2deg);
+    }
+    100% {
+      transform: scaleY(1.18) skewX(4deg);
+    }
+  }
+
+  @keyframes flame-dance-6 {
+    0% {
+      transform: scaleY(0.92) skewX(2deg);
+    }
+    100% {
+      transform: scaleY(1.22) skewX(-3deg);
+    }
+  }
+
+
+  /* Animation keyframes */
+
+  @keyframes fork-lift {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  @keyframes pizza-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes dessert-bounce {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-3px); }
+  }
+
+  @keyframes wine-swirl {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+  }
+
+  @keyframes beer-bubble {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-2px) scale(1.05); }
+    60% { transform: translateY(-4px) scale(1.05); }
+  }
+
+  @keyframes liquor-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px) rotate(-2deg); }
+    75% { transform: translateX(2px) rotate(2deg); }
+  }
+
+  @keyframes coffee-steam {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px) scale(1.02); }
+  }
+
+
+
+  .menu-section h2 {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-family: var(--brand-font);
+    letter-spacing: 0.5px;
+    margin: 0;
+    line-height: 1;
+  }
+
+
+
+  @media (max-width: 768px) {
+    .menu-container {
+      padding: 6rem 1.5rem 2rem;
+    }
+    
+    .menu-sections {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+    
+    .menu-section {
+      padding: 0.8rem 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .menu-container {
+      padding: 5rem 1rem 1.5rem;
+    }
+  }
+</style>

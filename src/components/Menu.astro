@@ -1,0 +1,299 @@
+---
+import { Image } from 'astro:assets';
+import { MENU_REDIRECT, BOOK_REDIRECT } from "../constants";
+import logoImg from '@assets/logo.png';
+---
+
+<toggle-component>
+	<nav>
+		<a href="/" class="logo-link" aria-label="Tundha Home">
+			<Image 
+				src={logoImg} 
+				alt="Tundha Logo" 
+				class="logo" 
+				width={48} 
+				height={48} 
+				loading="eager"
+				format="webp"
+				quality={100}
+				densities={[1, 2]}
+			/>
+		</a>
+		<button aria-label="menu" class="sandwich menu-button">
+			<div class="line line-one"></div>
+			<div class="line line-two"></div>
+			<div class="line line-three"></div>
+		</button>
+
+		<div class="menu">
+			<div class="content">
+				<div class="menu-items">
+					<a href="/" class="menu-item">Home</a>
+					<a href={MENU_REDIRECT} class="menu-item">Menu</a>
+					<a href="/about-us" class="menu-item">Chi Siamo</a>
+					<a href="/contact-us" class="menu-item">Contatti</a>
+					<a href={BOOK_REDIRECT} target="_blank" rel="noopener noreferrer" class="menu-item menu-item-button"
+						>Prenota Ora</a
+					>
+				</div>
+				<div class="background"></div>
+			</div>
+		</div>
+	</nav>
+</toggle-component>
+
+<script>
+	class ToggleComponent extends HTMLElement {
+		button: HTMLButtonElement | null = null;
+		content: HTMLDivElement | null = null;
+		lineOne: HTMLDivElement | null = null;
+		lineTwo: HTMLDivElement | null = null;
+		lineThree: HTMLDivElement | null = null;
+
+		constructor() {
+			super();
+
+			this.setButton();
+		}
+
+		setButton() {
+			this.button = this.querySelector(".menu-button");
+			this.lineOne = this.querySelector(".menu-button .line-one");
+			this.lineTwo = this.querySelector(".menu-button .line-two");
+			this.lineThree = this.querySelector(".menu-button .line-three");
+			this.content = this.querySelector(".menu");
+
+			if (!this.button) return;
+
+			this.button.addEventListener("click", () => {
+				const showMenu =
+					!this.content!.style.right ||
+					this.content!.style.right === "-100vw";
+
+				if (showMenu) {
+					this.openMenu();
+				} else {
+					this.closeMenu();
+				}
+			});
+
+			// Add escape key listener
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape" && this.isMenuOpen()) {
+					this.closeMenu();
+				}
+			});
+		}
+
+		isMenuOpen() {
+			return this.content && this.content.style.right === "0";
+		}
+
+		openMenu() {
+			if (!this.lineOne || !this.lineTwo || !this.lineThree || !this.content) return;
+			
+			this.lineOne.style.transform = "translateY(0.65rem) rotate(45deg)";
+			this.lineTwo.style.opacity = "0";
+			this.lineThree.style.transform = "translateY(-0.65rem) rotate(-45deg)";
+			this.content.style.right = "0";
+			
+			// Prevent body scrolling
+			document.body.style.overflow = "hidden";
+		}
+
+		closeMenu() {
+			if (!this.lineOne || !this.lineTwo || !this.lineThree || !this.content) return;
+			
+			this.lineOne.style.transform = "";
+			this.lineTwo.style.opacity = "1";
+			this.lineThree.style.transform = "";
+			this.content.style.right = "-100vw";
+			
+			// Re-enable body scrolling
+			document.body.style.overflow = "";
+		}
+	}
+
+	if (!customElements.get("toggle-component")) {
+		customElements.define("toggle-component", ToggleComponent);
+	}
+</script>
+
+<style scoped>
+	nav {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		padding: 0.75rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo-link {
+		display: inline-flex;
+		align-items: center;
+		z-index: 1000;
+		text-decoration: none;
+	}
+
+	.logo {
+		width: 3rem;
+		height: 3rem;
+		object-fit: contain;
+		transition: transform 0.3s ease;
+	}
+
+	.logo-link:hover .logo {
+		transform: scale(1.1);
+	}
+
+	.menu-button {
+		z-index: 1000;
+	}
+	.menu .background {
+		background-color: var(--brown);
+		opacity: 0.95;
+		height: 100vh;
+		width: 100vw;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		z-index: 991;
+	}
+	.menu {
+		width: 100vw;
+		height: 100vh;
+
+		position: fixed;
+		top: 0;
+		right: -100vw;
+		transition: right 0.4s ease;
+		z-index: 990;
+	}
+
+	.content {
+		display: grid;
+		padding: 1rem 2rem;
+		height: 100%;
+		position: relative;
+		place-items: center;
+	}
+	.menu-items {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		justify-content: center;
+		align-items: center;
+		width: 80vw;
+		max-width: 400px;
+    font-size: 1.2rem;
+
+		gap: 3rem;
+		z-index: 992;
+
+    font-family: var(--brand-font);
+    text-transform: uppercase;
+	}
+	.menu-item {
+		width: 100%;
+		text-align: center;
+		border-radius: 1rem;
+		padding: 1rem;
+		text-decoration: none;
+		color: var(--white);
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+	.menu-item:hover {
+		background-color: var(--white);
+		color: var(--black);
+		transform: scale(1.05);
+	}
+
+	.menu-item-button {
+		background-color: var(--red);
+		border-radius: 1rem;
+		padding: 1rem;
+		color: var(--brown);
+    font-weight: 900;
+		font-size: 1.3rem;
+		letter-spacing: 0.5px;
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+	.menu-item-button:hover {
+		background-color: var(--gold);
+		color: var(--brown);
+		transform: scale(1.05);
+	}
+
+	.sandwich {
+		position: relative;
+		background-color: var(--red);
+		height: 3rem;
+		width: 3rem;
+		padding: 0.3rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		border-radius: 0.3rem;
+		border: none;
+		cursor: pointer;
+		transition: transform 0.3s ease;
+	}
+
+	.sandwich:hover {
+		transform: scale(1.1);
+	}
+
+	.sandwich .line {
+		background-color: var(--brown);
+		height: 3px;
+		width: 1.5rem;
+		border-radius: 2px;
+		transition:
+			transform 0.3s ease,
+			opacity 0.3s ease;
+		transform-origin: center;
+	}
+
+	@media screen and (min-width: 900px) {
+		.menu-button {
+			display: none;
+		}
+		.menu .background {
+			display: none;
+		}
+		.menu {
+			right: 0;
+			width: 100%;
+			height: auto;
+			position: static;
+		}
+		.content {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			padding: 0;
+			height: auto;
+		}
+		.menu-items {
+			grid-template-columns: repeat(5, auto);
+			gap: 2rem;
+			width: auto;
+			max-width: none;
+			font-size: 1rem;
+		}
+		.menu-item {
+			padding: 0.75rem 1.5rem;
+		}
+		.menu-item-button {
+			padding: 0.75rem 1.5rem;
+			font-weight: 900;
+			font-size: 1.1rem;
+			letter-spacing: 0.5px;
+		}
+	}
+</style>

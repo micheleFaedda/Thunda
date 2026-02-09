@@ -1,0 +1,59 @@
+---
+import Signature from "@components/Signature.astro";
+---
+
+<main>
+    <section class="hero">
+        <div class="header">
+            <div class="title">
+                <h1>Tundha</h1>
+                <h2 class="section-header">by PBread</h2>
+            </div>
+            <Signature />
+        </div>
+
+        <div class="carousel">
+            <p>COMING SOON!</p>
+        </div>
+    </section>
+</main>
+
+<style>
+    .carousel p {
+        font-size: 4rem;
+        text-align: center;
+    }
+    .hero {
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+        align-items: center;
+        justify-items: center;
+        padding: 2rem 0;
+    }
+
+    .hero .header {
+        position: relative;
+        width: 100%;
+        display: grid;
+        justify-items: center;
+    }
+    .hero .header .title {
+        display: grid;
+        justify-items: end;
+    }
+    .hero .header .title h1 {
+        font-size: 6rem;
+    }
+    .hero .header .title h2 {
+        font-size: 1.5rem;
+        font-family: var(--brand-font);
+        color: var(--gold);
+    }
+
+    h1,
+    h2 {
+        font-size: 22px;
+        margin-top: 0.25em;
+    }
+</style>

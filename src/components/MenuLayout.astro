@@ -1,0 +1,59 @@
+---
+export interface Props {
+  title: string;
+  showReturn?: boolean;
+  returnUrl?: string;
+}
+
+const { title, showReturn = true, returnUrl } = Astro.props;
+
+import MenuBreadcrumb from './MenuBreadcrumb.astro';
+import MenuHeader from './MenuHeader.astro';
+---
+
+<div class="menu-container">
+  <div class="header-with-breadcrumb">
+    {showReturn && returnUrl && <MenuBreadcrumb returnUrl={returnUrl} />}
+    {showReturn && !returnUrl && <MenuBreadcrumb />}
+    <MenuHeader title={title} />
+  </div>
+  
+  <div class="menu-items">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem;
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+
+  .header-with-breadcrumb {
+    position: relative;
+  }
+  
+  .header-with-breadcrumb :global(.breadcrumb) {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  @media (max-width: 768px) {
+    .header-with-breadcrumb :global(.menu-header) {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  .menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>

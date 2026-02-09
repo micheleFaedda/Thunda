@@ -1,0 +1,49 @@
+title: Dessert
+items:
+  - name: Tiramisù
+    description: Il classico dolce italiano con savoiardi, caffè e mascarpone
+    price: 6
+    
+  - name: Seadas
+    description: Dolce tipico sardo con formaggio fuso, miele di corbezzolo
+    price: 7
+    
+  - name: Panna Cotta
+    description: Dolce al cucchiaio con frutti di bosco
+    price: 5
+    
+  - name: Cannolo Siciliano
+    description: Cialda croccante ripiena di ricotta dolce e pistacchi
+    price: 6
+    
+  - name: Millefoglie
+    description: Sfoglia croccante con crema pasticcera e fragole
+    price: 7
+    
+  - name: Cheesecake
+    description: Ai frutti di bosco o alla Nutella
+    price: 6
+    
+  - name: Crème Brûlée
+    description: Crema alla vaniglia con zucchero caramellato
+    price: 6
+    
+  - name: Profiteroles
+    description: Bignè ripieni di crema con cioccolato fondente
+    price: 7
+    
+  - name: Tortino al Cioccolato
+    description: Cuore caldo di cioccolato fondente servito con gelato
+    price: 7
+    
+  - name: Sorbetto al Limone
+    description: Rinfrescante sorbetto al limone di Sorrento
+    price: 4
+    
+  - name: Gelato Artigianale
+    description: Selezione di gusti artigianali (3 palline)
+    price: 5
+    
+  - name: Pardulas
+    description: Dolce pasquale sardo con ricotta e zafferano
+    price: 6
