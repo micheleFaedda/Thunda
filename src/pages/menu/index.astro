@@ -216,7 +216,8 @@ import '@styles/page-title.css';
 
 <style>
   .menu-container {
-    max-width: 800px;
+    max-width: 1200px;
+    width: min(1200px, 100%);
     margin: 0 auto;
     padding: 5rem 2rem 4rem;
     min-height: 100vh;
@@ -238,9 +239,9 @@ import '@styles/page-title.css';
 
   .menu-sections {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.6rem;
-    padding: 0 1rem;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 0;
   }
 
   .menu-section {
@@ -260,67 +261,60 @@ import '@styles/page-title.css';
     gap: 0.8rem;
   }
 
-  /* Alternating left-right alignment pattern */
+  /* Keep visual variants while preserving strict grid alignment */
   .appetizer-section {
     transform: translateX(0) rotate(-0.15deg);
     border-radius: 6px 7px 6px 7px;
-    margin-left: 0;
-    margin-right: auto;
-    width: calc(100% - 20px);
+    margin: 0;
+    width: 100%;
     transform-origin: left center;
   }
 
   .pizze-section {
     transform: translateX(0) rotate(0.1deg);
     border-radius: 7px 6px 7px 6px;
-    margin-left: auto;
-    margin-right: 0;
-    width: calc(100% - 20px);
+    margin: 0;
+    width: 100%;
     transform-origin: right center;
   }
 
   .dessert-section {
     transform: translateX(0) rotate(-0.1deg);
     border-radius: 6px 6px 7px 7px;
-    margin-left: 0;
-    margin-right: auto;
-    width: calc(100% - 20px);
+    margin: 0;
+    width: 100%;
     transform-origin: left center;
   }
 
   .wine-section {
     transform: translateX(0) rotate(0.15deg);
     border-radius: 7px 7px 6px 6px;
-    margin-left: auto;
-    margin-right: 0;
-    width: calc(100% - 20px);
+    margin: 0;
+    width: 100%;
     transform-origin: right center;
   }
 
   .beer-section {
     transform: translateX(0) rotate(-0.12deg);
     border-radius: 7px 6px 6px 7px;
-    margin-left: 0;
-    margin-right: auto;
-    width: calc(100% - 20px);
+    margin: 0;
+    width: 100%;
     transform-origin: left center;
   }
 
   .liquor-section {
     transform: translateX(0) rotate(0.08deg);
     border-radius: 6px 7px 7px 6px;
-    margin-left: auto;
-    margin-right: 0;
-    width: calc(100% - 20px);
+    margin: 0;
+    width: 100%;
     transform-origin: right center;
   }
 
   .coffee-section {
     transform: translateX(0) rotate(-0.08deg);
     border-radius: 6px 6px 7px 6px;
-    margin-left: 0;
-    margin-right: auto;
-    width: calc(100% - 20px);
+    margin: 0;
+    width: 100%;
     transform-origin: left center;
   }
   
@@ -1056,6 +1050,12 @@ import '@styles/page-title.css';
   }
 
 
+
+  @media (max-width: 1000px) {
+    .menu-sections {
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+  }
 
   @media (max-width: 768px) {
     .menu-container {
