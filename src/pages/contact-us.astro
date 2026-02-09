@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { BOOK_REDIRECT } from '../constants';
 import '@styles/page-title.css';
 ---
 
@@ -116,14 +115,67 @@ import '@styles/page-title.css';
 
       <section class="reservation-section">
         <h2 class="section-header">Prenota un Tavolo</h2>
-        <p>Vuoi assicurarti un posto nella nostra pizzeria?</p>
-        <a href={BOOK_REDIRECT} target="_blank" rel="noopener noreferrer" class="book-button">
-          Prenota Ora
-        </a>
+        <p>Compila i dati e registriamo la tua richiesta nel file locale <strong>contacts</strong>.</p>
+
+        <form class="reservation-form" id="reservation-form">
+          <label for="reservation-name">Nome</label>
+          <input id="reservation-name" name="name" type="text" required />
+
+          <label for="reservation-surname">Cognome</label>
+          <input id="reservation-surname" name="surname" type="text" required />
+
+          <label for="reservation-phone">Telefono</label>
+          <input id="reservation-phone" name="phone" type="tel" required />
+
+          <button type="submit" class="book-button">Registra Prenotazione</button>
+          <p class="form-status" id="reservation-status" aria-live="polite"></p>
+        </form>
       </section>
     </div>
   </div>
 </Layout>
+
+<script>
+  const reservationForm = document.getElementById('reservation-form');
+  const reservationStatus = document.getElementById('reservation-status');
+
+  if (reservationForm instanceof HTMLFormElement && reservationStatus instanceof HTMLElement) {
+    reservationForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(reservationForm);
+      const payload = {
+        name: String(formData.get('name') ?? '').trim(),
+        surname: String(formData.get('surname') ?? '').trim(),
+        phone: String(formData.get('phone') ?? '').trim(),
+      };
+
+      reservationStatus.textContent = 'Salvataggio in corso...';
+
+      try {
+        const response = await fetch('/api/contacts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const data = (await response.json()) as { message?: string };
+
+        if (!response.ok) {
+          reservationStatus.textContent = data.message ?? 'Errore durante il salvataggio.';
+          return;
+        }
+
+        reservationForm.reset();
+        reservationStatus.textContent = data.message ?? 'Prenotazione registrata.';
+      } catch {
+        reservationStatus.textContent = 'Impossibile contattare il server. Riprova.';
+      }
+    });
+  }
+</script>
 
 <style>
   .contact-container {
@@ -327,6 +379,42 @@ import '@styles/page-title.css';
     margin: 1rem 0;
     opacity: 0.9;
     font-family: var(--brand-font);
+  }
+
+  .reservation-form {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    text-align: left;
+  }
+
+  .reservation-form label {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--white);
+  }
+
+  .reservation-form input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--white);
+    border-radius: 0.4rem;
+    padding: 0.65rem 0.75rem;
+    font-family: var(--base-font);
+  }
+
+  .reservation-form input:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .form-status {
+    min-height: 1.25rem;
+    font-family: var(--base-font);
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 1;
   }
 
   .book-button {
